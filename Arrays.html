@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of all elements of the given array</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00ff00;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    .input-container input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .button-container {
+      margin-bottom: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #00ff00;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .result-container {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sum of all elements of the given array</h1>
+    <div class="input-container">
+      <label for="inputArray">Enter an array of numbers (comma-separated):</label>
+      <input type="text" id="inputArray" onkeydown="if (event.keyCode === 13) calculateSum()">
+    </div>
+    <div class="button-container">
+      <button onclick="calculateSum()">Calculate Sum</button>
+    </div>
+    <div class="result-container">
+      Sum of the array: <span id="sumResult"></span>
+    </div>
+  </div>
+
+  <script>
+    const sum = function (arr) {
+      return arr.reduce((acc, item) => acc + item, 0);
+    }
+
+    const calculateSum = function () {
+      const input = document.getElementById("inputArray").value;
+      const arr = input.split(",").map(Number);
+      const sumResult = sum(arr);
+      document.getElementById("sumResult").textContent = sumResult;
+    }
+  </script>
+</body>
+</html>
